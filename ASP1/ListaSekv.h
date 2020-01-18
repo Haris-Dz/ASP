@@ -1,6 +1,8 @@
 #pragma once
+#include<iostream>
+#include "Lista.h"
 using namespace std;
-class ListaSekv
+class ListaSekv : public Lista
 {
 	int max_size = 2;
 	int *niz = new int[max_size];
