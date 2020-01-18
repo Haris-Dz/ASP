@@ -1,11 +1,11 @@
 #include <iostream>
 #include "ListaSekv.h"
 #include "ListaPov.h"
+#include "Lista.h"
 using namespace std;
-void main() 
+void NewFunction(Lista& x) 
 {
-	//ListaSekv x;
-	ListaPov x;
+	
 	
 	int u;
 	do
@@ -60,6 +60,12 @@ void main()
 		}
 	} while (u != 7);
 
+}
+void main()
+{
+	//ListaSekv x;
+	ListaPov x;
+	NewFunction(x);
 
 
 	system("pause>0");

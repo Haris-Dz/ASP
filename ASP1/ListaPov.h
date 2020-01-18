@@ -1,6 +1,9 @@
 #pragma once
 #include "Cvor.h"
-class ListaPov 
+#include<iostream>
+#include"Lista.h"
+using namespace std;
+class ListaPov : public Lista
 {
 	Cvor* prvi = nullptr;
 
@@ -38,7 +41,8 @@ public:
 	{
 		if (jel_prazna())
 		{
-			throw exception("Lista je prazna");
+			//throw exception("Lista je prazna");
+			return 0;
 		}
 		Cvor* t = prvi;
 		prvi = prvi->next;
@@ -50,7 +54,8 @@ public:
 	{
 		if (jel_prazna())
 		{
-			throw exception("Lista je prazna");
+			//throw exception("Lista je prazna");
+			return 0;
 		}
 		
 		Cvor* prethodni = nullptr;
@@ -58,7 +63,7 @@ public:
 		if (temp->next == nullptr)
 		{
 			int f = temp->info;
-			prvi == nullptr;
+			prvi = nullptr;
 			return f;
 		}
 		while (temp->next != nullptr)
@@ -79,6 +84,10 @@ public:
 		return prvi == nullptr;
 	}
 
+	bool jel_puna()
+	{
+		return false;
+	}
 	int get(int index)
 	{
 		int b = 0;

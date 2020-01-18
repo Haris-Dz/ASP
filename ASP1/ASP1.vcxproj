@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cvor.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaPov.h" />
     <ClInclude Include="ListaSekv.h" />
   </ItemGroup>
