@@ -2,13 +2,14 @@
 #include<iostream>
 #include "Lista.h"
 using namespace std;
-class ListaSekv : public Lista
+template<class T >
+class ListaSekv : public Lista<T>
 {
 	int max_size = 2;
-	int *niz = new int[max_size];
+	T *niz = new T[max_size];
 	int brojac = 0;
 public:
-	void dodaj_na_pocetak(int x)
+	void dodaj_na_pocetak(T x)
 	{
 		if (jel_puna())
 		{
@@ -22,7 +23,7 @@ public:
 		brojac++;
 		
 	}
-	void dodaj_na_kraj(int x)
+	void dodaj_na_kraj(T x)
 	{
 		if (jel_puna())
 		{
@@ -31,9 +32,9 @@ public:
 		niz[brojac] = x;
 		brojac++;
 	}
-	int ukloni_s_pocetka()
+	T ukloni_s_pocetka()
 	{
-		int poc = niz[0];
+		T poc = niz[0];
 		for (int i = 1; i < brojac ; i++)
 		{
 			niz[i - 1] = niz[i];
@@ -41,10 +42,10 @@ public:
 		brojac--;
 		return poc;
 	}
-	int ukloni_s_kraja()
+	T ukloni_s_kraja()
 	{
 		brojac--;
-		int novi = niz[brojac];
+		T novi = niz[brojac];
 		return novi;
 	}
 	bool jel_prazna()
@@ -55,7 +56,7 @@ public:
 	{
 		return brojac == max_size;
 	}
-	int get(int index)
+	T get(int index)
 	{
 		return niz[index];
 	}
@@ -74,7 +75,7 @@ public:
 	}
 	void prosiri_niz()
 	{
-		int* novi_niz = new int[max_size * 2];
+		T* novi_niz = new T[max_size * 2];
 		for (int i = 0; i < brojac; i++)
 		{
 			novi_niz[i] = niz[i];

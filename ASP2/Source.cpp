@@ -5,8 +5,9 @@
 #include"Stek.h"
 #include"StekSekv.h"
 #include"StekPov.h"
+
 using namespace std;
-void ListaOperacije(Lista& x) 
+void ListaOperacije(Lista<int>& x) 
 {
 	
 	
@@ -65,7 +66,7 @@ void ListaOperacije(Lista& x)
 	} while (u != 7);
 
 }
-void StekOperacije(Stek& x)
+void StekOperacije(Stek<int>& x)
 {
 
 	int u;
@@ -111,16 +112,31 @@ void StekOperacije(Stek& x)
 		}
 	} while (u != 0);
 }
+struct Osoba {
+	string ime;
+	Osoba(string x = " ")
+	{
+		ime = x;
+	}
+};
+ostream& operator << (ostream& out, const Osoba& c)
+{
+	out << c.ime;
+	return out;
+}
 void main()
 {
-	ListaSekv b;
-	ListaPov c;
-	StekSekv d;
-	StekPov e;
+	ListaSekv<int> b;
+	ListaPov<int> c;
+	StekSekv<int> d;
+	StekPov<int> e;
+	ListaPov <Osoba> A;
+	
 	ListaOperacije(b);
 	ListaOperacije(c);
 	StekOperacije(d);
 	StekOperacije(e);
+	A.dodaj_na_kraj(Osoba("Hd"));
 
 
 	system("pause>0");

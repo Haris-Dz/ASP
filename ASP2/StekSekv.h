@@ -2,14 +2,15 @@
 #include<iostream>
 #include "Stek.h"
 using namespace std;
-class StekSekv : public Stek
+template<class T>
+class StekSekv : public Stek<T>
 {
 	int max_size = 2;
-	int* niz = new int[max_size];
+	T* niz = new T[max_size];
 	int brojac = 0;
 public:
 
-	void dodaj(int x)
+	void dodaj(T x)
 	{
 		if (jel_pun())
 		{
@@ -19,10 +20,10 @@ public:
 		brojac++;
 	}
 
-	int ukloni()
+	T ukloni()
 	{
 		brojac--;
-		int novi = niz[brojac];
+		T novi = niz[brojac];
 		return novi;
 	}
 	bool jel_prazan()
@@ -49,7 +50,7 @@ public:
 	}
 	void prosiri_niz()
 	{
-		int* novi_niz = new int[max_size * 2];
+		T* novi_niz = new T[max_size * 2];
 		for (int i = 0; i < brojac; i++)
 		{
 			novi_niz[i] = niz[i];

@@ -1,9 +1,11 @@
 #pragma once
+template<class T>
 struct Cvor
 {
-	int info;
-	Cvor* next;
-	Cvor(int info, Cvor* next = nullptr)
+	T info;
+	Cvor<T>* next;
+
+	Cvor(T info, Cvor<T>* next = nullptr)
 	{
 		this->info = info;
 		this->next = next;

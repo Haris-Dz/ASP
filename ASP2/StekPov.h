@@ -3,20 +3,21 @@
 #include<iostream>
 #include"Stek.h"
 using namespace std;
-class StekPov : public Stek
+template <class T>
+class StekPov : public Stek<T>
 {
-	Cvor* prvi = nullptr;
+	Cvor<T>* prvi = nullptr;
 
 public:
-	void dodaj(int x)
+	void dodaj(T x)
 	{
 		if (jel_prazan())
 		{
-			prvi = new Cvor(x);
+			prvi = new Cvor<T>(x);
 		}
 		else
 		{
-			Cvor* n = new Cvor(x, prvi);
+			Cvor<T>* n = new Cvor<T>(x, prvi);
 			prvi = n;
 		}
 	}
@@ -25,12 +26,12 @@ public:
 	{
 		if (jel_prazan())
 		{
-			//throw exception("Lista je prazna");
-			return 0;
+			throw exception("Lista je prazna");
+			
 		}
-		Cvor* t = prvi;
+		Cvor<T>* t = prvi;
 		prvi = prvi->next;
-		int x = t->info;
+		T x = t->info;
 		delete t;
 		return x;
 	}
@@ -48,7 +49,7 @@ public:
 	int get_brojac()
 	{
 		int b = 0;
-		Cvor* temp = prvi;
+		Cvor<T>* temp = prvi;
 		while (temp != nullptr)
 		{
 			b++;
@@ -58,7 +59,7 @@ public:
 	}
 	void print()
 	{
-		Cvor* temp = prvi;
+		Cvor<T>* temp = prvi;
 		while (temp != nullptr)
 		{
 			cout << temp->info << " | ";

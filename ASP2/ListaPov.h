@@ -3,32 +3,33 @@
 #include<iostream>
 #include"Lista.h"
 using namespace std;
-class ListaPov : public Lista
+template<class T>
+class ListaPov : public Lista<T>
 {
-	Cvor* prvi = nullptr;
+	Cvor<T>* prvi = nullptr;
 
 public:
-	void dodaj_na_pocetak(int x)
+	void dodaj_na_pocetak(T x)
 	{
 		if (jel_prazna())
 		{
-			prvi = new Cvor(x);
+			prvi = new Cvor<T>(x);
 		}
 		else
 		{
-			Cvor* n = new Cvor(x, prvi);
+			Cvor<T>* n = new Cvor<T>(x, prvi);
 			prvi = n;
 		}
 	}
-	void dodaj_na_kraj(int x)
+	void dodaj_na_kraj(T x)
 	{
 		if (jel_prazna())
 		{
-			prvi = new Cvor(x);
+			prvi = new Cvor<T>(x);
 			return;
 		}
-		Cvor* n = new Cvor(x);
-		Cvor* temp = prvi;
+		Cvor<T>* n = new Cvor<T>(x);
+		Cvor<T>* temp = prvi;
 		while (temp->next != nullptr)
 		{
 			temp = temp->next;
@@ -37,32 +38,32 @@ public:
 		
 		
 	}
-	int ukloni_s_pocetka()
+	T ukloni_s_pocetka()
 	{
 		if (jel_prazna())
 		{
-			//throw exception("Lista je prazna");
-			return 0;
+			throw exception("Lista je prazna");
+			
 		}
-		Cvor* t = prvi;
+		Cvor<T>* t = prvi;
 		prvi = prvi->next;
-		int x = t->info;
+		T x = t->info;
 		delete t;
 		return x;
 	}
-	int ukloni_s_kraja()
+	T ukloni_s_kraja()
 	{
 		if (jel_prazna())
 		{
-			//throw exception("Lista je prazna");
-			return 0;
+			throw exception("Lista je prazna");
+			
 		}
 		
-		Cvor* prethodni = nullptr;
-		Cvor* temp = prvi;
+		Cvor<T>* prethodni = nullptr;
+		Cvor<T>* temp = prvi;
 		if (temp->next == nullptr)
 		{
-			int f = temp->info;
+			T f = temp->info;
 			prvi = nullptr;
 			return f;
 		}
@@ -74,7 +75,7 @@ public:
 		}
 		prethodni->next = nullptr;	
 		
-		int x = temp->info;
+		T x = temp->info;
 		delete temp;
 		temp = nullptr;
 		return x;
@@ -88,10 +89,10 @@ public:
 	{
 		return false;
 	}
-	int get(int index)
+	T get(int index)
 	{
 		int b = 0;
-		Cvor* temp = prvi;
+		Cvor<T>* temp = prvi;
 		while (temp != nullptr)
 		{
 			if (b == index)
@@ -106,7 +107,7 @@ public:
 	int get_brojac()
 	{
 		int b = 0;
-		Cvor* temp = prvi;
+		Cvor<T>* temp = prvi;
 		while (temp != nullptr)
 		{
 			b++;
@@ -116,7 +117,7 @@ public:
 	}
 	void print()
 	{
-		Cvor* temp = prvi;
+		Cvor<T>* temp = prvi;
 		while (temp != nullptr)
 		{
 			cout << temp->info << " | ";
