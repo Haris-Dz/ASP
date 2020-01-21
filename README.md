@@ -17,3 +17,9 @@ Algoritmi i strukture podataka predavanja
 
 6. Red povezano
 
+//ASP4
+
+6. Prioritetni red sekvencijalno
+
+6. Prioritetni red povezano
+
