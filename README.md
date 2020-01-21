@@ -11,8 +11,6 @@ Algoritmi i strukture podataka predavanja
 
 4. Stek povezano
 
-//ASP2 Sa generickim klasama
-
 //ASP3
 
 5. Red sekvencijalno
