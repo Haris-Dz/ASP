@@ -5,7 +5,7 @@ Algoritmi i strukture podataka predavanja
 
 2. Lista povezano
 
-//ASP2
+//ASP2 (Uvedene genericke klase, i nastavak sa generickim klasama)
 
 3. Stek sekvencijalno
 
